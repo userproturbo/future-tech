@@ -1,30 +1,40 @@
+// Подключаем вспомогательные функции и миксины из файла helpers
 @use "helpers" as * ;
 
-
+// ---------------------------------------------
+// Определение CSS-переменных в :root
+// ---------------------------------------------
 :root {
-  --color-light: #ffffff;
+  // Цвета
+  --color-light: #ffffff;        // светлый цвет (фон, текст)
 
-  --color-dark: #141414;
-  --color-dark-10: #141414;
+  --color-dark: #141414;         // основной тёмный цвет
+  --color-dark-10: #141414;      // тёмный с небольшой прозрачностью или для градаций
   --color-dark-15: #1A1A1A;
   --color-dark-20: #262626;
   --color-dark-40: #333333;
 
-  --color-gray-50: #7E7E81;
+  --color-gray-50: #7E7E81;      // серые оттенки для текста или фонов
   --color-gray-60: #98989A;
 
-  --color-accent: #FFD11A;
-  --color-red: #FF5500;
+  --color-accent: #FFD11A;       // акцентный цвет (например, кнопки)
+  --color-red: #FF5500;          // цвет ошибок или предупреждений
 
-  --font-family-base: 'Inter', sans-serif;
-  --font-family-accent: 'Kumbh Sans', sans-serif;
+  // Шрифты
+  --font-family-base: 'Inter', sans-serif;       // основной шрифт
+  --font-family-accent: 'Kumbh Sans', sans-serif; // акцентный шрифт для заголовков и выделений
 
-  --container-width: #{rem(1600)};
-  --container-padding-x: #{rem(16)};
+  // Контейнеры
+  --container-width: #{rem(1600)};      // максимальная ширина контейнера в больших экранах
+  --container-padding-x: #{rem(16)};     // горизонтальные отступы внутри контейнера
 
-  --transition-duration: 0.2s;
+  // Анимации / переходы
+  --transition-duration: 0.2s;          // стандартная длительность переходов
 
+  // ---------------------------------------------
+  // Адаптивность контейнера для ноутбуков
+  // ---------------------------------------------
   @include laptop {
-    --container-width: #{rem(1280)};
+    --container-width: #{rem(1280)};    // уменьшаем ширину контейнера на экранах <= ноутбуков
   }
 }
