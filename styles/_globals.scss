@@ -1,11 +1,19 @@
 @use "helpers" as *;
 
 body {
-  @include  fluid-text(18, 24);
+  // Адаптивный размер шрифта — плавно изменяется от 18px до 24px
+  @include fluid-text(18, 24);
 
+  // Основной шрифт
   font-family: var(--font-family-base);
+
+  // Уменьшаем расстояние между буквами
   letter-spacing: -0.03em;
+
+  // Основной цвет текста (серый)
   color: var(--color-gray-50);
+
+  // Цвет фона — тёмный
   background-color: var(--color-dark);
 }
 
@@ -14,25 +22,30 @@ h2, .h2,
 h3, .h3,
 h4, .h4,
 h5, .h5,
-h6, .h6, {
-  color: var(--color-light);
+h6, .h6 {
+  color: var(--color-light); // Белый текст
 }
 
 h1, .h1,
 h2, .h2,
-h3, .h3, {
-  font-family: var(--font-family-accent);
-  font-weight: 500;
+h3, .h3 {
+  font-family: var(--font-family-accent); // Акцентный шрифт
+  font-weight: 500;                       // Средняя насыщенность
 }
 
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-weight: 600;
+  font-weight: 600; // Чуть жирнее
 }
 
+// ---------------------------------------------
+// Индивидуальные размеры заголовков
+// fluid-text(min, max) — делает шрифт плавно адаптивным
+// ---------------------------------------------
+
 h1, .h1 {
-  @include fluid-text(70, 30);
+  @include fluid-text(70, 30); // от 70px (десктоп) до 30px (мобильный)
   line-height: 1.2;
 }
 
@@ -57,6 +70,9 @@ h6, .h6 {
   @include fluid-text(20, 16);
 }
 
+// ---------------------------------------------
+// Глобальные стили для интерактивных элементов
+// ---------------------------------------------
 a,
 button,
 label,
@@ -64,23 +80,32 @@ input,
 textarea,
 select,
 svg * {
+  // Добавляем плавные переходы для всех свойств, где применимо
   transition-duration: var(--transition-duration);
 }
 
+// ---------------------------------------------
+// Стили для ссылок
+// ---------------------------------------------
 a {
-  color: inherit;
+  color: inherit; // Наследуем цвет от родителя
 
+  // Эффект при наведении
   @include hover {
-    color: var(--color-accent);
+    color: var(--color-accent); // Меняем цвет на акцентный
   }
 
+  // Если у ссылки есть класс — убираем подчеркивание
   &[class] {
     text-decoration: none;
   }
 }
 
+// ---------------------------------------------
+// Стили для состояния фокуса (доступность)
+// ---------------------------------------------
 :focus-visible {
-  outline: rem(2) dashed var(--color-light);
-  outline-offset: rem(4);
-  transition-duration: 0s !important;
+  outline: rem(2) dashed var(--color-light); // Белая пунктирная обводка
+  outline-offset: rem(4);                    // Отступ от элемента
+  transition-duration: 0s !important;        // Убираем плавность, чтобы фокус был мгновенным
 }
