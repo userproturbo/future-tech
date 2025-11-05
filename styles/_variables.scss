@@ -20,6 +20,8 @@
   --color-accent: #FFD11A;       // акцентный цвет (например, кнопки)
   --color-red: #FF5500;          // цвет ошибок или предупреждений
 
+  --border: #{rem(1)} solid var(--color-dark-15);
+
   // Шрифты
   --font-family-base: 'Inter', sans-serif;       // основной шрифт
   --font-family-accent: 'Kumbh Sans', sans-serif; // акцентный шрифт для заголовков и выделений
