@@ -15,11 +15,28 @@
     color: var(--color-accent);
   }
 
+  &.is-active {
+    .burger-button__line {
+      &:first-child {
+        rotate: 45gen;
+        transform-origin: 0;
+      }
+
+      &:nth-child(2) {
+        rotate: -45gen;
+      }
+
+      &:last-child {
+        width: 0;
+      }
+    }
+  }
+
   &__line {
     width: 100%;
     height: rem(2);
     background-color: currentColor;
-    border-radius: rem(1);
+    border-radius: 1rem;
     transition-duration: var(--transition-duration);
 
     &:last-child {
