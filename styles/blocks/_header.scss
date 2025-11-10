@@ -28,6 +28,16 @@
       display: contents;
     }
     @include mobile {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 3rem;
+      padding: 1rem;
+      background-color: var(--color-dark-10);
+      transition-duration: var(--transition-duration);
+
       &:not(.is-active) {
         @include hide;
 
@@ -37,6 +47,10 @@
   }
 
   &__menu {
+    @include mobile {
+      overflow-y: auto;
+    }
+
     &-list {
       display: flex;
       align-items: center;
@@ -44,6 +58,11 @@
 
       @include laptop {
         column-gap: rem(6);
+      }
+
+      @include mobile {
+        flex-direction: column;
+        row-gap: 1rem;
       }
     }
 
@@ -63,6 +82,14 @@
         border-radius: rem(10);
         pointer-events: none;
       }
+    }
+  }
+
+  &__contact-us-link {
+    @include mobile {
+      width: 100%;
+      max-width: rem(300);
+      align-self: center;
     }
   }
 }
