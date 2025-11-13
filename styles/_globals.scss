@@ -9,18 +9,20 @@ html {
 body {
   // Адаптивный размер шрифта — плавно изменяется от 18px до 24px
   @include fluid-text(18, 14);
-
+  display: flex;
+  flex-direction: column;
   // Основной шрифт
   font-family: var(--font-family-base);
-
   // Уменьшаем расстояние между буквами
   letter-spacing: -0.03em;
-
   // Основной цвет текста (серый)
   color: var(--color-gray-50);
-
   // Цвет фона — тёмный
   background-color: var(--color-dark);
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1, .h1,
